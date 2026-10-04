@@ -2,7 +2,7 @@
 #define CONFIG_H
 
 #define MAX_TIMERS 16
-#define RINGING_TIMEOUT 10000
+#define RINGING_TIMEOUT (5 * 60)
 
 //UART configs
 #define RX_BUFFER_SIZE 64
@@ -18,5 +18,16 @@
 #define DIGITS_Y_OFFSET 0
 #define ACTIVE_TIMER_INDICATOR_BLINK_RATE 100
 #define TIMER_DIGITS_BLINK_RATE 500
+#define RINGING_DISPLAY_LABEL_DURATION 1000
+
+//Rotation configs
+// The longest pause between two rotation steps that still counts as the same
+// continuous rotation (i.e. keeps accelerating)
+#define ROTATION_ACCELERATION_TIMEOUT 150
+
+//Battery configs
+// Resting voltage below which the LiPo cell is due to be charged (~5-10% left)
+#define LOW_BATTERY_CENTIVOLTS 360
+#define LOW_BATTERY_WARNING_DURATION 2000
 
 #endif // CONFIG_H
